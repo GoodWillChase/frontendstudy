@@ -2,13 +2,13 @@
 
 ------
 
-HTML 速查列表. 你可以打印它，以备日常使用。
+
 
 ------
 
 ## HTML 基本文档
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 基本标签（Basic Tags）
 
-```
+```html
 <h1>最大的标题</h1>
  <h2> . . . </h2>
  <h3> . . . </h3>
@@ -36,7 +36,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 文本格式化（Formatting）
 
-```
+```html
 <b>粗体文本</b>
  <code>计算机代码</code>
  <em>强调文本</em>
@@ -59,7 +59,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 链接（Links）
 
-```
+```html
 普通的链接：<a href="链接地址">链接文本</a>
 图像链接： <a href="http://www.example.com/"><img src="URL" alt="替换文本"></a> 
 邮件链接： <a href="mailto:webmaster@example.com">发送e-mail</a>
@@ -69,13 +69,13 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 图片（Images）
 
-```
+```html
 <img src="URL" alt="替换文本" height="42" width="42">
 ```
 
 ## 样式/区块（Styles/Sections）
 
-```
+```html
 <style type="text/css">
    h1 {color:red;}
    p {color:blue;}
@@ -88,7 +88,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 无序列表
 
-```
+```html
 <ul>
    <li>项目</li>
    <li>项目</li>
@@ -97,7 +97,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 有序列表
 
-```
+```html
 <ol>
    <li>第一项</li>
    <li>第二项</li>
@@ -106,7 +106,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 定义列表
 
-```
+```html
 <dl>
    <dt>项目 1</dt>
      <dd>描述项目 1</dd>
@@ -117,7 +117,7 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 表格（Tables）
 
-```
+```html
 <table border="1">
    <tr>
      <th>表格标题</th>
@@ -132,13 +132,13 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 框架（Iframe）
 
-```
+```html
 <iframe src="demo_iframe.htm"></iframe>
 ```
 
 ## 表单（Forms）
 
-```
+```html
 <form action="demo_form.php" method="post/get">
 
 <input type="text" name="email" size="40" maxlength="50"> 
@@ -162,8 +162,12 @@ HTML 速查列表. 你可以打印它，以备日常使用。
 
 ## 实体（Entities）
 
-```
+```html
 &lt; 等同于 <
  &gt; 等同于 >
 &copy; 等同于 ©
 ```
+
+
+
+
