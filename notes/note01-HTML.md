@@ -27,7 +27,6 @@
  <h4> . . . </h4>
  <h5> . . . </h5>
  <h6>最小的标题</h6>
- 
  <p>这是一个段落。</p>
  <br> （换行）
  <hr> （水平线）
@@ -41,11 +40,10 @@
  <code>计算机代码</code>
  <em>强调文本</em>
  <i>斜体文本</i>
- <kbd>键盘输入</kbd> 
+ <kbd>键盘输入</kbd>
  <pre>预格式化文本</pre>
  <small>更小的文本</small>
  <strong>重要的文本</strong>
- 
  <abbr> （缩写）
  <address> （联系信息）
  <bdo> （文字方向）
@@ -80,8 +78,6 @@
    h1 {color:red;}
    p {color:blue;}
  </style>
- 
- 
  <div>文档中的块级元素</div>
  <span>文档中的内联元素</span>
 ```
