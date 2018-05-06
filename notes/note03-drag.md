@@ -10,9 +10,9 @@
 
 然后，规定当元素被拖动时，会发生什么。
 
-在上面的例子中，ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据。
+在上面的例子中，**ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据。**
 
-dataTransfer.setData() 方法设置被拖数据的数据类型和值：    
+**dataTransfer.setData() 方法设置被拖数据的数据类型和值：  **  
 
 ```js
 function drag(ev)        
@@ -30,13 +30,13 @@ function drag(ev)
 
 [ondragover 事件](https://www.w3cschool.cn/jsref/event-ondragover.html)规定在何处放置被拖动的数据。
 
-默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+**默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。**
 
-这要通过调用 ondragover 事件的 event.preventDefault() 方法：    
+**这要通过调用 ondragover 事件的 event.preventDefault() 方法：**    
 
  *event*.preventDefault()
 
- 
+
 
 ------
 
@@ -55,7 +55,7 @@ ev.target.appendChild(document.getElementById(data));
 ```
 代码解释：
 
-- 调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
-- 通过 dataTransfer.getData("Text") 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。
+- **调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）**
+- **通过 dataTransfer.getData("Text") 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。**
 - 被拖数据是被拖元素的 id ("drag1")
 - 把被拖元素追加到放置元素（目标元素）中
