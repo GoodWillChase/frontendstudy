@@ -9,17 +9,22 @@
 <script>
 function allowDrop(ev)
 {
+	// 默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+	// 这要通过调用 ondragover 事件的 event.preventDefault() 方法：
 	ev.preventDefault();
 }
 
 function drag(ev)
 {
+	// 数据类型是 "Text"，值是可拖动元素的 id ("drag1")。
 	ev.dataTransfer.setData("Text",ev.target.id);
 }
 
 function drop(ev)
 {
+	// 调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
 	ev.preventDefault();
+	// 通过 dataTransfer.getData("Text") 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。
 	var data=ev.dataTransfer.getData("Text");
 	ev.target.appendChild(document.getElementById(data));
 }
