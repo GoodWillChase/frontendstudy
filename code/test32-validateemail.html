@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>W3Cschool教程(w3cschool.cn)</title>
+</head>
+<head>
+<script>
+function validateForm(){
+	// 输入的数据必须包含 @ 符号和点号(.)。同时，@ 不可以是邮件地址的首字符，并且 @ 之后需有至少一个点号：
+	var x=document.forms["myForm"]["email"].value;
+	var atpos=x.indexOf("@");
+	var dotpos=x.lastIndexOf(".");
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+		alert("不是一个有效的 e-mail 地址");
+  		return false;
+	}
+}
+</script>
+</head>
+<body>
+	
+<form name="myForm" action="demo-form" onsubmit="return validateForm();" method="post">
+Email: <input type="text" name="email">
+<input type="submit" value="提交">
+</form>
+	
+</body>
+</html>
