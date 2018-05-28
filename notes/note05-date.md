@@ -66,7 +66,7 @@
 
 
 
-
+JavaScript提供七种不同的data types(数据类型)，它们是`undefined`（未定义）, `null`（空）, `boolean`（布尔型）, `string`（字符串）, `symbol`(符号), `number`（数字）, and `object`（对象）。 
 
 
 
