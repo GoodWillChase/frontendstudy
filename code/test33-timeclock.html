@@ -14,7 +14,7 @@ function startTime(){
 	m=checkTime(m);
 	s=checkTime(s);
 	document.getElementById('txt').innerHTML=h+":"+m+":"+s;
-	t=setTimeout(function(){startTime()},500);
+    t=setTimeout(function(){startTime()},500);   //还不是很懂
 }
 function checkTime(i){
 	if (i<10){
