@@ -70,13 +70,57 @@ JavaScript提供七种不同的data types(数据类型)，它们是`undefined`�
 
 
 
+----
+
+## JSON
 
 
 
+下面在重点给大家介绍JS中json数据的处理
+1、 json数据结构(对象和数组)
+json对象：var obj = {"name":"xiao","age":12};
+json数组：var objArray = [{"name":"xiao","age":12},{"name":"xiao","age":12}];
+
+2、 处理json数据，依赖文件有：jQuery.js
+
+3、Note：数据传输过程中，json数据是以文本，即字符串格式形式存在；
+JS语言操作的是JS对象；
+所以json字符串与JS对象之间的转换是关键；
+
+4、数据格式
+Json字符串：var json_str = ‘{"name":"xiao","age":12}';
+Josn对象：var obj = {"name":"xiao","age":12};
+JS对象：Object {name: "xiao", age: 12}
+
+5、类型转换
+Json字符串——>JS对象，使用方法：
+注明：
+
+json_str、obj代表的是在本文子标题4中的数据类型；
+obj = JSON.parse(json_str);
+obj = jQuery.parseJSON(json_str);
+Note:传入畸形json字符串(例如：‘{name:"xiao",age:12}')，会抛出异常；
+Json字符串格式，严格格式：‘{"name":"xiao","age":12}'
+JS对象——>Json字符串：
+json_str = JSON. stringify(obj);
 
 
 
+Json字符串——>JS对象; 
 
+```json
+JSON.parse('{"name":"Xiao","age":12}')
+{name: "Xiao", age: 12}
+jQuery.parseJSON('{"name":"Xiao","age":12}')
+{name: "Xiao", age: 12}
+```
+
+JS对象——>Json字符串： 
+
+```json
+JSON.stringify({name: "Xiao", age: 12})
+"{"name":"Xiao","age":12}"	
+```
 
 
 
