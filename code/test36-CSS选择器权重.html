@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>权重</title>
+    <style>
+        .demo1 .demo2 {
+            color: red;
+        }
+        .demo1 .demo4 {
+            color: green;   
+        }
+        div {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo1">
+        <div class="demo2">
+            <div class="demo3">
+                <div class="demo4">
+                    <div class="demo5">文字颜色（文字颜色为蓝色。因为 "div" 标签直接作用的，而 demo4 是继承之后作用到的。）</div>
+                    <span>SPAN。绿色。都是上一级继承的，而这时候 class 选择器权重大于标签选择器。</span>
+                    <pre>   继承性
+                            一般文本颜色和字号,font-开头的属性,text-开头的属性、line-开头的,color可以被继承       
+                         优先级
+                             id选择器>class选择器>标签选择器
+                            注意特殊情况
+                                * 行内样式优先 
+                                * css定义了一个命令!important,该命令赋予最大的优先级 
+                                * 继承样式权重为0
+                                * 权重相同,css遵循就近原则，谁靠近元素的样式具有最大的优先级
+                     
+                           总结
+                               1 首先观看选择器是否直接选中作用的元素还是通过继承影响作用的元素
+                               2 假如不是继承则按照权重的计算公式（id选择器个数 class选择器个数 标签选择器个数），假如三个选择器个数都一样，则就近原则（排在最后的优先级最大）
+                               3 假如都是继承的,谁描述的近(结构层级)就听谁的,当描述结构层级一样，则依次比较id选择器数量 class选择器数量 标签选择器数量,假如三种选择器数量也一样，就近原则(位置就近)</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
