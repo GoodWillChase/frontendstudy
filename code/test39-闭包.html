@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   function fun1(a,b) {
+	   	  function fun2(a) {
+	   	  	  alert(a+b); // a是自己传来的a,b即fun1传来的
+	   	  }
+	   	  return fun2;
+	   }
+
+	   var fn = fun1(3,5);// 3是fun1的形参a 5给fun1的形参b
+	   fn(8);// 弹出13
+	</script>
+</body>
+</html>

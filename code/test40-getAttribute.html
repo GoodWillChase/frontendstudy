@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="images/luhan.jpg" alt="" id="pic">
+	<p id="p1" qq="382867197" style="width:500px;">这是一个段落</p>
+	<script type="text/javascript">
+	   // 修改图片路径为雷锋
+	    var pic = document.getElementById("pic");
+	    // 修改属性 
+	    pic.setAttribute("src","images/leifeng.jpg"); // 完全等价于 pic.src = "images/leifeng.jpg";
+        
+        // 获取自定义属性qq
+        var oP = document.getElementById("p1");
+        //oP.qq = "123456";
+        console.log(oP.qq);// undefined 自定义属性不能通过点语法获取
+        console.log(oP.getAttribute("qq"));// 382867197
+
+	</script>
+</body>
+</html>
