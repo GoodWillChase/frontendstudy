@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	    // 系统随机生成一个地雷数 1~100
+	    //  Math.random() [0,1)  
+	    //console.log(Math.random());
+
+	    var dilei = parseInt(Math.random()*100+1);
+	    console.log(dilei);
+	    var shangxian = 100;
+	    var xiaxian = 1;
+
+	    // 反复让用户输入数字 死循环 直到踩到地雷
+	    while(true) {
+	    	var num = parseInt(prompt("请输入数字，范围是"+xiaxian+"到"+shangxian));
+	    	// 验证数字有效性
+	    	if(num>xiaxian&&num<shangxian) {
+                 if(num > dilei) {
+                 	 shangxian = num;
+                 } else if(num<dilei){
+                    xiaxian = num;
+                 } else {
+                 	alert("恭喜你中奖，快去买棒棒糖");
+                 	break;
+                 }
+	    	} else {
+	    		alert("输入的数字不在范围内,请重新输入");
+	    	}
+
+	    }   
+	</script>
+</body>
+</html>
