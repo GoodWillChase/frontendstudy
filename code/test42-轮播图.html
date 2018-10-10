@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+	    * {
+	   	   padding: 0;
+	   	   margin: 0;
+	    }
+
+        .carousel {
+            width: 672px;
+            height: 350px;
+            margin:50px auto;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .carousel .imgs ul li {
+            display: none;
+        }
+
+        .carousel .imgs ul li.current {
+            display: block;
+        }
+
+        .carousel ul li .mask {
+            width: 100%;
+            height: 60px;
+            background: #000;
+            opacity: 0.6;
+	   	    filter: alpha(opacity=60);
+            position: absolute;
+            bottom: 30px;
+        }
+
+        .carousel ul li h3 {
+            position: absolute;
+            font-size: 30px;
+            line-height: 60px;
+            color: #fff;
+            bottom: 30px;
+            padding-left: 25px;
+        }
+
+        .carousel .btns span {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            top: 132px;
+            cursor: pointer;
+        }
+
+        .carousel .btns span.btnL {
+            background: url(img/carousel-slide-btnL.png);
+            left: 10px;
+        }
+
+        .carousel .btns span.btnR {
+            background: url(img/carousel-slide-btnR.png);
+            right: 10px;
+        }
+        
+        .carousel .circles {
+            position: absolute;
+            width: 200px;
+	   	    height: 17px;
+            left: 50%;
+            margin-left: -75px;
+            bottom: 0;
+        }
+
+        .carousel .circles li {
+            width: 17px;
+	   	    height: 17px;
+            border-radius: 50%;
+	   	    float: left;
+	   	    background: gold;
+	   	    margin-right: 13px;
+        }
+
+        .carousel .circles li.current {
+            background-color: #f0f;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="imgs" id="imgs">
+            <ul>
+                <li class="current">
+                    <a href=""><img src="img/carousel-1.jpg" alt=""></a>
+                    <div class="mask"></div>
+                    <h3>F1</h3>
+                </li>
+                <li><a href="">
+                    <img src="img/carousel-2.jpg" alt=""></a>
+                    <div class="mask"></div>
+                    <h3>F1</h3>
+                </li>
+                <li><a href=""><img src="img/carousel-3.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/carousel-4.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/carousel-5.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="btns">
+            <span class="btnL" id="btnL"></span>
+            <span class="btnR" id="btnR"></span>
+        </div>
+        <div class="circles" id="circles">
+            <ul>
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var btnL = document.getElementById("btnL");
+        var btnR = document.getElementById("btnR");
+        var imgs = document.getElementById("imgs").getElementsByTagName("li");
+        var circles = document.getElementById("circles").getElementsByTagName("li");
+
+        // 卡在这里
+        imgIndex = 0;
+
+        btnL.onclick = function(){
+            imgIndex--;
+            if (imgIndex < 0) {
+                imgIndex = 4;
+            }
+            changeImg();
+        }
+
+        btnR.onclick = function(){
+            imgIndex++;
+            if (imgIndex > 4) {
+                imgIndex = 0;
+            }
+            changeImg();
+        }
+
+        // 对小圆点进行批量监听
+        for(var i=0;i<circles.length;i++) {
+            // 难点！！！
+            circles[i].index = i;
+            circles[i].onmouseover = function(){
+                imgIndex = this.index;
+                changeImg();
+            }
+        }
+
+        // 难点！！！
+        function changeImg() {
+            for(var i=0;i<imgs.length;i++) {
+                imgs[i].className = "";
+            }
+            imgs[imgIndex].className = "current";
+
+            for(var i=0;i<circles.length;i++) {
+                circles[i].className = "";
+            }
+            circles[imgIndex].className = "current";
+        }
+
+
+    </script>
+</body>
+</html>
