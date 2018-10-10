@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    div {
+	    	width: 600px;
+	    	height: 120px;
+	    	border: 1px solid blue;
+	    }
+
+	    div p {
+	    	 float: left;
+	    	 width: 60px;
+	    	 height: 60px;
+	    	 background-color: navy;
+	    	 margin-right: 10px;
+	    }
+	</style>
+</head>
+<body>
+	<div id="box1">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div id="box2">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<script type="text/javascript">
+	   // 单击第一排的p 第二排对应的p变红
+	   // 1 找到相关元素
+	   var ps1 = document.getElementById("box1").getElementsByTagName("p");
+	   var ps2 = document.getElementById("box2").getElementsByTagName("p");
+
+       // 2 循环分别绑定事件
+       for(var i=0; i<ps1.length; i++) {
+       	   ps1[i].index = i;
+       	   ps1[i].onclick = function() {
+       	   	   ps2[this.index].style.backgroundColor = "red";
+       	   }
+       }
+
+       // ps2[0] ps2[1]
+	</script>
+</body>
+</html>
