@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   div {
+	   	  width: 100px;
+	   	  height: 100px;
+	   	  background-color: pink;
+	   	  position: absolute;
+	   	  left: 60px;
+	   	  top: 40px;
+	   }
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<button id="btn_start">开始</button>
+	<button id="btn_pause">停止</button>
+
+	<script type="text/javascript">
+         // 找到相关元素
+         var box = document.getElementById("box");
+         var btn_start = document.getElementById("btn_start");
+         var btn_pause = document.getElementById("btn_pause");
+         
+         var num = 60;// num记住盒子的left值 
+         var timer;// 记住定时器
+         // 分别绑定事件
+         btn_start.onclick = function() {
+         	 // 关闭定时器
+         	 clearInterval(timer);
+         	 timer = setInterval(function() {
+         	 	num+=4;
+                 box.style.left = num + "px";
+         	 }, 30);   
+         }
+         
+         // 监听停止按钮
+         btn_pause.onclick = function() {
+         	// 取消定时器
+         	clearInterval(timer);
+         }
+	</script>
+</body>
+</html>
