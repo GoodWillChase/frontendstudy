@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   div {
+	   	  width: 200px;
+	   	  height: 200px;
+	   	  background-color: blue;
+	   	  position: absolute;
+	   	  top: 100px;
+	   	  left: 40px;
+	   	  opacity: 0.3;
+	   	  filter: alpha(opacity=30);
+	   }
+	</style>
+</head>
+<body>
+	<button>STRAT</button>
+	<div></div>
+	<script type="text/javascript">
+         var oDiv = document.getElementsByTagName("div")[0];
+         animate(oDiv,{"width":400,"height":400,"opacity":1},2000);
+
+	    // 封装运动函数
+	    function  animate(obj,endJson,time) {
+            var start = {}; // 记住参与运动属性的初始值
+            // 循环得到最终状态json的属性，这些属性就是参与运动的属性 
+            for(var k in endJson) {
+            	 start[k] = parseFloat(fetchComputedStyle(obj,k));
+            }
+
+            var stepJson = {}; // 记住运动属性的步长
+            var xinhaoliang = {};
+
+            for(var k in start) {
+            	 xinhaoliang[k] = start[k]; 
+            }
+
+            var interval = 50;
+            var allcount = time/interval;
+            var count = 0;
+            // 得到步长
+            for(var k in endJson) {
+            	endJson[k] = parseFloat(endJson[k]);
+            	stepJson[k] = (endJson[k] - start[k])/allcount;
+            }
+
+            // 运动
+            var timer = setInterval(function() {
+            	for(var k in xinhaoliang) {
+            	   xinhaoliang[k] += stepJson[k];
+            	   if(k=="opacity") {
+            	   	   obj.style[k] = xinhaoliang[k];
+            	   	   obj.style.filter = "alpha(opacity="+xinhaoliang[k]*100+")";
+            	   } else {
+            	       obj.style[k] = xinhaoliang[k] + "px";
+            	   }
+            	}
+
+            	count++;
+            	if(count>=allcount) {
+            		clearInterval(timer);
+            	}
+
+            }, interval);
+            
+	    }
+
+	       // 定义函数
+	   function fetchComputedStyle(obj,property) {
+          // 用户输入的属性有两种情况 一种驼峰式一种是连字符写法
+          //高版本下 paddingLeft -------> padding-left
+          if(window.getComputedStyle) {
+          	  /*property = property.replace(/([A-Z])/g,function(match,$1) {
+                 return "-"+$1.toLowerCase();
+          	  });*/
+          	  //console.log(property);
+          	  return getComputedStyle(obj)[property];
+          } else {
+          	  // padding-left------>paddingLeft
+          	  property = property.replace(/\-([a-z])/g,function(match,$1) {
+                 return $1.toUpperCase();
+          	  });
+          	  return obj.currentStyle[property];
+          } 
+	   }
+	</script>
+</body>
+</html>
