@@ -83,6 +83,7 @@
                 var image = document.getElementById('image');
                 // 把img标签的src属性 设置为当前点击的a标签的href
                 // 错误的写法： image.src = link.href   !!!!!
+                // this 指向的是当前的对象 link
                 image.src = this.href;
                 
                 //5 设置p标签的内容

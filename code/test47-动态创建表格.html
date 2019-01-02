@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	 行: <input type="text" id="row" />
+	 列: <input type="text" id="col" />
+	 <button id="btn">创建</button>
+	 <div id="wrap">
+	 	 <!-- <table>
+	 	 	<tr>
+	 	 		<td></td>
+	 	 	</tr>
+	 	 </table> -->
+	 </div>
+	 <script type="text/javascript" src="./public.js"></script>
+	 <script type="text/javascript">
+          $("btn").onclick = function() {
+          	    // 添加表格前 清空容器
+          	    $("wrap").innerHTML = "";
+          	    var rows = $("row").value;
+          	    var cols = $("col").value; 
+          	    var oTable = document.createElement("table");   
+          	    oTable.border = 1;
+          	    oTable.style.width = "300px";
+          	    oTable.style.height = "300px";
+                // 创建行
+                for(var i=0; i<rows; i++) {
+                	var oTr = document.createElement("tr");
+                	// 创建列
+                	for(var j=0; j<cols; j++) {
+                		var oTd = document.createElement("td");
+                		oTr.appendChild(oTd);
+                	}
+                	// 追加一列删除
+                	var endTd = document.createElement("td");
+                	endTd.innerHTML = "<a href='javascript:;'>删除</a>";
+                	oTr.appendChild(endTd);
+                	oTable.appendChild(oTr);	
+                } 
+
+                $("wrap").appendChild(oTable);
+                 // 给所有删除的超链接绑定事件
+                var as = oTable.querySelectorAll("a");
+                for(var i=0; i<as.length; i++) {
+                	as[i].onclick = function() {
+                		if (confirm("你确定删除么?")) {
+                		// 删除当前a元素所在行
+                			this.parentNode.parentNode.remove();
+                			if (oTable.children.length === 0) {
+                				oTable.remove();
+                			}
+                	    }
+                	}
+                }
+          }
+
+          
+
+	 </script>
+</body>
+</html>
