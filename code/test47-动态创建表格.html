@@ -10,10 +10,10 @@
 	 <button id="btn">创建</button>
 	 <div id="wrap">
 	 	 <!-- <table>
-	 	 	<tr>
-	 	 		<td></td>
-	 	 	</tr>
-	 	 </table> -->
+	 	 	    <tr>
+	 	 		    <td></td>
+	 	 	    </tr>
+	 	      </table> -->
 	 </div>
 	 <script type="text/javascript" src="./public.js"></script>
 	 <script type="text/javascript">
@@ -35,7 +35,8 @@
                 		oTr.appendChild(oTd);
                 	}
                 	// 追加一列删除
-                	var endTd = document.createElement("td");
+                    var endTd = document.createElement("td");
+                    // href='javascript:;  表示不做跳转
                 	endTd.innerHTML = "<a href='javascript:;'>删除</a>";
                 	oTr.appendChild(endTd);
                 	oTable.appendChild(oTr);	
@@ -47,7 +48,7 @@
                 for(var i=0; i<as.length; i++) {
                 	as[i].onclick = function() {
                 		if (confirm("你确定删除么?")) {
-                		// 删除当前a元素所在行
+                		    // 删除当前a元素所在行
                 			this.parentNode.parentNode.remove();
                 			if (oTable.children.length === 0) {
                 				oTable.remove();

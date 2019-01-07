@@ -166,4 +166,151 @@
 
 
 
+---
+
+为 HTML 添加新元素
+
+```html
+<script>
+document.createElement("myHero")
+</script>
+
+<style>
+myHero {
+    display: block;
+    background-color: #ddd;
+    padding: 50px;
+    font-size: 30px;
+}
+</style> 
+```
+
+```html
+<myHero>我的第一个新元素</myHero>
+```
+
+
+
+---
+
+```html
+<!-- 带边框的表格 -->
+<form action="">
+    <fieldset>
+        <legend>Personal information:</legend>
+        Name: <input type="text" size="30"><br>
+        E-mail: <input type="text" size="30"><br>
+        Date of birth: <input type="text" size="10">
+    </fieldset>
+</form>
+
+```
+
+
+
+---
+
+```html
+<p>最好的 HTML 解决方法
+    下面的例子使用了两个不同的音频格式。HTML5 audio 元素会尝试以 mp3 或 ogg 来播放音频。如果失败，代码将回退尝试 embed 元素。</p>
+<audio controls>
+  <source src="/statics/demosource/horse.mp3" type="audio/mpeg">
+  <source src="/statics/demosource/horse.ogg" type="audio/ogg">
+  <embed height="50" width="100" src="/statics/demosource/horse.mp3">
+</audio>
+
+
+<p>HTML视频（Videos）播放
+
+    最好的 HTML 解决方法
+    以下实例中使用了4种不同的视频格式。HTML 5 video 元素会尝试播放以 mp4、ogg 或 webm 格式中的一种来播放视频。如果均失败，则回退到 embed 元素。
+    
+    HTML 5 + object> + embed>:</p>
+
+<video width="320" height="240" controls autoplay>
+  <source src="/statics/demosource/movie.ogg" type="video/ogg">
+  <source src="/statics/demosource/movie.mp4" type="video/mp4">
+  <source src="/statics/demosource/movie.webm" type="video/webm">
+  <object data="/statics/demosource/movie.mp4" width="320" height="240">
+    <embed width="320" height="240" src="/statics/demosource/movie.swf">
+  </object>
+</video>
+
+```
+
+
+
+---
+
+### LocalStorage
+
+```html
+<div id="result"></div>
+<script>
+if(typeof(Storage)!=="undefined")
+{
+  localStorage.sitename="W3Cschool在线教程";
+  document.getElementById("result").innerHTML="网站名：" + localStorage.sitename;
+}
+else
+{
+  document.getElementById("result").innerHTML="对不起，您的浏览器不支持 web 存储。";
+}
+</script>
+
+<br>
+<hr>
+<section><pre>
+实例解析：
+
+使用 key="sitename" 和 value="W3Cschool在线教程" 创建一个 localStorage 键/值对。
+检索键值为"sitename" 的值然后将数据插入 id="result"的元素中。
+以上实例也可以这么写：
+
+// 存储
+localStorage.sitename = "W3Cschool在线教程";
+// 查找
+document.getElementById("result").innerHTML = localStorage.sitename;
+
+---
+
+移除 localStorage 中的 "lastname" : 
+
+localStorage.removeItem("lastname");
+
+---
+
+不管是 localStorage，还是 sessionStorage，可使用的API都相同，常用的有如下几个（以localStorage为例）： 
+
+保存数据：localStorage.setItem(key,value);
+读取数据：localStorage.getItem(key);
+删除单个数据：localStorage.removeItem(key);
+删除所有数据：localStorage.clear();
+得到某个索引的key：localStorage.key(index);</pre></section>
+
+```
+
+
+
+---
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
 
